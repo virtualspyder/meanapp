@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+  <a class="navbar-brand" href="#">FASHIONISTA</a>
+  <button type="button" class="navbar-toggler collapsed" (click)="iscollapsed=!iscollapsed">
+    <span class="navbar-toggler-icon"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+
+  <div id="navbar" class=" navbar-collapse collapse" [collapse]="iscollapsed">    
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" *ngIf="authService.loggedIn() && authService.userRole()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/addproduct']">Add Product </a>
+      </li>
+      <li class="nav-item" *ngIf="authService.loggedIn() && authService.userRole()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/adduser']">Add User </a>
+      </li> 
+      <li class="nav-item" *ngIf="authService.loggedIn() && authService.userRole()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/users']">Edit Users </a>
+      </li> 
+      <li class="nav-item" *ngIf="authService.loggedIn() && authService.userRole()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/products']">Edit Products </a>
+      </li> 
+      <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/profile']">Profile </a>
+      </li>
+      <li class="nav-item" *ngIf="authService.loggedIn() && !authService.userRole()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/cart']">Cart </a>
+      </li>
+      <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/login']">Login </a>
+      </li>
+      <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/register']">Register</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.loggedIn()">
+        <a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>

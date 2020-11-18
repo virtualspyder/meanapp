@@ -1,0 +1,38 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Products</h1>        
+  </div>
+</section>
+<br>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="ring">      
+      <hr>
+      <div *ngIf="products">
+        <div class="row ">
+          <div *ngFor="let product of products " class="col-md-4">
+            <div class="card mb-4 box-shadow ">
+              <img class="card-img-top" src="{{product.img}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.description}}</p>
+                <p class="card-text">{{product.price}}</p>
+                <button type="button" *ngIf="!authService.loggedIn()" class="btn customStyle btn-lg btn-block" [routerLink]="['/login']">Shop</button>
+                <div class="row" *ngIf="authService.loggedIn() && authService.userRole()">
+                  <div class="col-xs-12 col-md-6">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="onEditProduct(product)">Edit</button>
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <button type="button" class="btn btn-danger btn-lg btn-block" (click)="onDeleteProduct(product)">Delete</button>
+                  </div>
+                </div>
+                <button type="button" *ngIf="authService.loggedIn() && !authService.userRole()" class="btn customStyle btn-lg btn-block" (click)="onAddProductToCart(product)">Add to cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    
+    </div>
+  </div>
+</div>

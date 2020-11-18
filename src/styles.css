@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+.addProductStyle{
+    background-color: yellowgreen;
+    color:white;
+}
+.navbar-custom{
+    background-color: hsl(197, 70%, 50%);
+    color: white;
+}
+.customs{
+    background-color: salmon;
+    color: white;
+}
+.custom-class{
+    background-color: peru;
+    color: white;
+}
+.checkout{
+    background-color: yellow;
+    color:white;
+}
